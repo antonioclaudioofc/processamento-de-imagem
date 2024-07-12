@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-imagem = cv2.imread('logo.jpeg')
+imagem = cv2.imread("logo.jpg")
 
 def ajuste_brilho(img,br):
     brilho=[br,br,br]

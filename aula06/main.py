@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 RED = (0, 0, 255)
 
 def draw_circle(event,x,y,flags,param):
@@ -13,12 +12,16 @@ def draw_circle(event,x,y,flags,param):
         pos_y = y 
         cv2.circle(img,(x,y),3,RED,-1)
 
-img = cv2.imread('ifma.jpg')
+path = '../aula04/ifma.jpg'
+
+img = cv2.imread(path)
+cv2.imshow('Logo IF',img)
+
 
 pos_x = 0
 pos_y = 0
 angle = 10
-rows,cols = img.shape[:2]
+(row, col) = img.shape[0:2]
 
 cv2.namedWindow('Logo IF')
 cv2.setMouseCallback('Logo IF',draw_circle)
@@ -29,7 +32,7 @@ while(1):
 
     if cv2.waitKey(20) & 0xFF == ord('r'):
         rot = cv2.getRotationMatrix2D((pos_x,pos_y),angle,1)
-        img = cv2.warpAffine(img,rot,(cols,rows))
+        img = cv2.warpAffine(img,rot,(col,row))
 
     if cv2.waitKey(20) & 0xFF == ord('q'):
         break
