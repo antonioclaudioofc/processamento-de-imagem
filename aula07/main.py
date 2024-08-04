@@ -13,7 +13,7 @@ logo = cv2.resize(logo, (400, 150), interpolation=cv2.INTER_AREA)
 
 roi = img[0:row, 0:col]
 
-logogray = cv2.cvtColor(logo,cv2.COLOR_BGR2GRAY)
+logogray = cv2.cvtColor(logo,cv2.COLOR_BGR2GRAY)    
 ret, mask_inv = cv2.threshold(logogray, 200, 255, cv2.THRESH_BINARY)
 mask = cv2.bitwise_not(mask_inv)
 
